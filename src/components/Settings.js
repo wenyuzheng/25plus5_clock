@@ -6,20 +6,38 @@ import {
   INCREMENT_SESSION,
   DECREMENT_SESSION,
 } from "../constants/actionTypes";
+import "./css/Settings.css";
 
 const Settings = () => {
   const dispatch = useDispatch();
   const breakLength = useSelector((state) => state.breakLength);
   const sessionLength = useSelector((state) => state.sessionLength);
+  const status = useSelector((state) => state.status);
 
-  const handleIncrementBreak = () => dispatch({ type: INCREMENT_BREAK });
-  const handleDecrementBreak = () => dispatch({ type: DECREMENT_BREAK });
+  const handleIncrementBreak = () => {
+    if (!status) {
+      dispatch({ type: INCREMENT_BREAK });
+    }
+  };
+  const handleDecrementBreak = () => {
+    if (!status) {
+      dispatch({ type: DECREMENT_BREAK });
+    }
+  };
 
-  const handleIncrementSession = () => dispatch({ type: INCREMENT_SESSION });
-  const handleDecrementSession = () => dispatch({ type: DECREMENT_SESSION });
+  const handleIncrementSession = () => {
+    if (!status) {
+      dispatch({ type: INCREMENT_SESSION });
+    }
+  };
+  const handleDecrementSession = () => {
+    if (!status) {
+      dispatch({ type: DECREMENT_SESSION });
+    }
+  };
 
   return (
-    <div>
+    <div id="settings">
       <Setting
         label="Break Length"
         length={breakLength}

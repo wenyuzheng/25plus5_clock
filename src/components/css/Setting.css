@@ -1,0 +1,9 @@
+#setting {
+    margin: 20px;
+}
+
+#controlls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -1,8 +1,10 @@
+import "./css/Setting.css";
+
 const Setting = ({ label, length, increment, decrement }) => {
   return (
     <div id="setting">
       <div>{label}</div>
-      <div>
+      <div id="controlls">
         <div id="decrement" onClick={decrement}>
           -
         </div>
