@@ -1,5 +1,7 @@
+import { useSelector } from "react-redux";
+
 const Display = () => {
-  const timerLabel = "Session";
+  const timerLabel = useSelector((state) => state.timerLabel);
 
   return (
     <div id="timer">

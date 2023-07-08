@@ -1,5 +1,4 @@
-const SESSION_END = "SESSION_END";
-const SESSION_START = "SESSION_START";
+import { SESSION_END, SESSION_START } from "../constants/actionTypes";
 
 const initialState = "SESSION";
 

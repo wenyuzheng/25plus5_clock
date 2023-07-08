@@ -1,24 +1,37 @@
-const Setting = ({ label, length }) => {
-  return (
-    <div id="setting">
-      <div>{label}</div>
-      <div>
-        <div id="decrement"></div>
-        <div id="length">{length}</div>
-        <div id="increment"></div>
-      </div>
-    </div>
-  );
-};
+import { useDispatch, useSelector } from "react-redux";
+import Setting from "./Setting";
+import {
+  INCREMENT_BREAK,
+  DECREMENT_BREAK,
+  INCREMENT_SESSION,
+  DECREMENT_SESSION,
+} from "../constants/actionTypes";
 
 const Settings = () => {
-  const breakLength = 5;
-  const sessionLength = 25;
+  const dispatch = useDispatch();
+  const breakLength = useSelector((state) => state.breakLength);
+  const sessionLength = useSelector((state) => state.sessionLength);
+
+  const handleIncrementBreak = () => dispatch({ type: INCREMENT_BREAK });
+  const handleDecrementBreak = () => dispatch({ type: DECREMENT_BREAK });
+
+  const handleIncrementSession = () => dispatch({ type: INCREMENT_SESSION });
+  const handleDecrementSession = () => dispatch({ type: DECREMENT_SESSION });
 
   return (
     <div>
-      <Setting label="Break Length" length={breakLength} />
-      <Setting label="Session Length" length={sessionLength} />
+      <Setting
+        label="Break Length"
+        length={breakLength}
+        increment={handleIncrementBreak}
+        decrement={handleDecrementBreak}
+      />
+      <Setting
+        label="Session Length"
+        length={sessionLength}
+        increment={handleIncrementSession}
+        decrement={handleDecrementSession}
+      />
     </div>
   );
 };

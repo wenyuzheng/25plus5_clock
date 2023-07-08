@@ -1,4 +1,7 @@
 import "./App.css";
+import Settings from "./components/Settings";
+import Display from "./components/Display";
+import Controller from "./components/Controller";
 
 function App() {
   return (

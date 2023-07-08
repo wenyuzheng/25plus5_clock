@@ -1,5 +1,4 @@
-const INCREMENT_SESSION = "INCREMENT_SESSION";
-const DECREMENT_SESSION = "DECREMENT_SESSION";
+import { INCREMENT_SESSION, DECREMENT_SESSION } from "../constants/actionTypes";
 
 const initialState = 25;
 

@@ -1,5 +1,4 @@
-const INCREMENT_BREAK = "INCREMENT_BREAK";
-const DECREMENT_BREAK = "DECREMENT_BREAK";
+import { INCREMENT_BREAK, DECREMENT_BREAK } from "../constants/actionTypes";
 
 const initialState = 5;
 
