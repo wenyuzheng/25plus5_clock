@@ -1,14 +1,25 @@
-import { DECREMENT_TIMER, RESET_TIMER } from "../constants/actionTypes";
+import {
+  DECREMENT_TIMER,
+  RESET_TIMER,
+  SET_TIMER,
+} from "../constants/actionTypes";
 
-const initialState = 1430;
+const initialState = 25 * 60;
 
 const timerReducer = (state = initialState, action) => {
   switch (action.type) {
     case DECREMENT_TIMER:
-      return state - 1;
+      if (state !== 0) {
+        return state - 1;
+      } else {
+        return state;
+      }
 
     case RESET_TIMER:
       return initialState;
+
+    case SET_TIMER:
+      return action.payload;
 
     default:
       return state;

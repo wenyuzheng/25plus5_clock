@@ -7,12 +7,13 @@ export const INCREMENT_SESSION = "INCREMENT_SESSION";
 export const DECREMENT_SESSION = "DECREMENT_SESSION";
 
 // Timer Label
-export const SESSION_END = "SESSION_END";
-export const SESSION_START = "SESSION_START";
+export const IS_SESSION = "IS_SESSION";
 
 // Time
 export const DECREMENT_TIMER = "DECREMENT_TIMER";
 export const RESET_TIMER = "RESET_TIMER";
+export const SET_TIMER = "SET_TIMER";
 
 // Status
+export const PAUSE = "PAUSE";
 export const START_PAUSE = "START_PAUSE";

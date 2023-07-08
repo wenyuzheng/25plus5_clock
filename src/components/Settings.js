@@ -5,8 +5,10 @@ import {
   DECREMENT_BREAK,
   INCREMENT_SESSION,
   DECREMENT_SESSION,
+  SET_TIMER,
 } from "../constants/actionTypes";
 import "./css/Settings.css";
+import { useEffect } from "react";
 
 const Settings = () => {
   const dispatch = useDispatch();
@@ -35,6 +37,14 @@ const Settings = () => {
       dispatch({ type: DECREMENT_SESSION });
     }
   };
+
+  useEffect(() => {
+    dispatch({ type: SET_TIMER, payload: sessionLength * 60 });
+  }, [sessionLength]);
+
+  useEffect(() => {
+    dispatch({ type: SET_TIMER, payload: breakLength * 60 });
+  }, [breakLength]);
 
   return (
     <div id="settings">
