@@ -2,7 +2,8 @@ import { useDispatch, useSelector } from "react-redux";
 import "./css/Controller.css";
 import {
   START_PAUSE,
-  DECREMENT_TIMER,
+  DECREMENT_SESSION_TIMER,
+  DECREMENT_BREAK_TIMER,
   RESET_TIMER,
   PAUSE,
   IS_SESSION,
@@ -14,6 +15,7 @@ const Controller = () => {
 
   const status = useSelector((state) => state.status);
   const timer = useSelector((state) => state.timer);
+  const isSession = useSelector((state) => state.isSession);
 
   const handleStartPause = () => {
     dispatch({ type: START_PAUSE });
@@ -32,7 +34,10 @@ const Controller = () => {
   };
 
   const startCountdown = () => {
-    dispatch({ type: DECREMENT_TIMER });
+    console.log(isSession);
+    dispatch({
+      type: isSession ? DECREMENT_SESSION_TIMER : DECREMENT_BREAK_TIMER,
+    });
 
     // console.log({ timer });
 

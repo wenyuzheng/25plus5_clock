@@ -1,18 +1,29 @@
 import {
-  DECREMENT_TIMER,
+  DECREMENT_SESSION_TIMER,
+  DECREMENT_BREAK_TIMER,
   RESET_TIMER,
   SET_TIMER,
 } from "../constants/actionTypes";
 
-const initialState = 25 * 60;
+const initialState = {
+  session_timer: 25 * 60,
+  break_timer: 5 * 60,
+};
 
 const timerReducer = (state = initialState, action) => {
   switch (action.type) {
-    case DECREMENT_TIMER:
-      if (state !== 0) {
-        return state - 1;
+    case DECREMENT_SESSION_TIMER:
+      if (state.session_timer !== 0) {
+        return state.session_timer - 1;
       } else {
-        return state;
+        return state.session_timer;
+      }
+
+    case DECREMENT_BREAK_TIMER:
+      if (state.break_timer !== 0) {
+        return state.break_timer - 1;
+      } else {
+        return state.break_timer;
       }
 
     case RESET_TIMER:
